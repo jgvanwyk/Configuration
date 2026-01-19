@@ -113,16 +113,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end
 })
 
--- Ensure formatoptions never contains "ro" (some file type plugins like to
--- change this).
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "*",
-    callback = function()
-        vim.opt.formatoptions:remove("r")
-        vim.opt.formatoptions:remove("o")
-    end
-})
-
 -- Disable line numbers in floating windows.
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",
